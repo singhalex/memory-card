@@ -30,3 +30,13 @@ html {
     margin: 1rem;
     padding: 1rem;
   }
+
+  .poke-card > h4 {
+    text-align: center;
+  }
+
+  .poke-card > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
