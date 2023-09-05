@@ -23,8 +23,6 @@ function App() {
         name: pokemon.name,
         sprite: pokemon.sprites.front_default
       })
-      
-      console.log(typeof(pokemon.name))
     }
 
     setPokeList(newPokeList)
