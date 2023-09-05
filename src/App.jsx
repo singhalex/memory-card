@@ -4,24 +4,27 @@ function App() {
   // Create an array of Pokemon in state
   const [pokeList, setPokeList] = useState([]);
   
-  // Grab pokemon info from API
+  // Fetch pokemon info from API
   const fetchPokemon = async (numOfPoke) => {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${numOfPoke}`);
-    const pokemon = await response.json();
-    return pokemon;
+    const data = await response.json();
+    return data;
   }
 
+  // Fetch pokemon in order
   const serializedFetchPokemon = async () => {
-    const newPokeList = []
-    for (let i = 1; i < 11; i++) {
-      const data = await fetchPokemon(i)
+    const newPokeList = [];
+    const numOfPoke = 10;
+
+    for (let i = 1; i < (numOfPoke + 1); i++) {
+      const pokemon = await fetchPokemon(i)
       newPokeList.push({
-        id: data.id,
-        name: data.name,
-        sprite: data.sprites.front_default
+        id: pokemon.id,
+        name: pokemon.name,
+        sprite: pokemon.sprites.front_default
       })
       
-      console.log(typeof(data.name))
+      console.log(typeof(pokemon.name))
     }
 
     setPokeList(newPokeList)
@@ -33,8 +36,6 @@ function App() {
   useEffect(() => {
     serializedFetchPokemon();
   }, []);
-
-  
 
   return (
     <>
