@@ -29,7 +29,14 @@ html {
     background-color: rgb(150, 182, 197);
     margin: 1rem;
     padding: 1rem;
+    cursor: pointer;
   }
+
+  .poke-card:hover {
+    -webkit-filter: brightness(90%);
+  }
+
+
 
   .poke-card > h4 {
     text-align: center;
