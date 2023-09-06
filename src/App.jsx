@@ -37,7 +37,10 @@ function App() {
   }, []);
 
   return (
-    <Board pokeList={pokeList} test='Testes'/>
+    <>
+      <div className='scoreboard'>Current Score</div>
+      <Board pokeList={pokeList} test='Testes'/>
+    </>
   )
 }
 
