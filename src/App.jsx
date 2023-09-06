@@ -4,6 +4,8 @@ import Board from './Board';
 function App() {
   // Create an array of Pokemon in state
   const [pokeList, setPokeList] = useState([]);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
   
   // Fetch pokemon info from API
   const fetchPokemon = async (numOfPoke) => {
@@ -38,7 +40,10 @@ function App() {
 
   return (
     <>
-      <div className='scoreboard'>Current Score</div>
+      <div className='scoreboard'>
+        <h1>Current Score: {currentScore}</h1>
+        <h1>High Score: {highScore}</h1>
+      </div>
       <Board pokeList={pokeList} test='Testes'/>
     </>
   )
