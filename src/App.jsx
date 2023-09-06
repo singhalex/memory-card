@@ -37,7 +37,7 @@ function App() {
   }, []);
 
   return (
-    <Board pokeList={pokeList} test='Testes'></Board>
+    <Board pokeList={pokeList} test='Testes'/>
   )
 }
 
