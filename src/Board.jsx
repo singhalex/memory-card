@@ -1,15 +1,18 @@
+import Card from "./Card";
+
 const Board = ({pokeList}) => {
     return (
-      <>
+      <div className="board">
         {pokeList.map((poke) => {
             return (
-            <div key={poke?.id} className='poke-card'>
-                <img src={poke?.sprite} alt={poke?.name} />
-                <h4>{poke?.name.toUpperCase()}</h4>
-            </div>
+                <Card
+                    key={poke.id}
+                    name={poke.name}
+                    sprite={poke.sprite}
+                />
             )
         })}
-      </>
+      </div>
     )
 
 }
