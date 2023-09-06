@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
+import Board from './Board';
 
 function App() {
   // Create an array of Pokemon in state
@@ -36,16 +37,7 @@ function App() {
   }, []);
 
   return (
-    <>
-      {pokeList.map((poke) => {
-        return (
-          <div key={poke?.id} className='poke-card'>
-            <img src={poke?.sprite} alt={poke?.name} />
-            <h4>{poke?.name.toUpperCase()}</h4>
-          </div>
-        )
-      })}
-    </>
+    <Board pokeList={pokeList} test='Testes'></Board>
   )
 }
 
