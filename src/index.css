@@ -22,6 +22,14 @@ html {
     height: auto;
   }
 
+  .board {
+    margin: auto;
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+  }
+
   .poke-card {
     width: 150px;
     height: 150px;
