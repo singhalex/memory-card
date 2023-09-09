@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-const Board = ({pokeList}) => {
+const Board = ({pokeList, handleClick}) => {
     return (
       <div className="board">
         {pokeList.map((poke) => {
@@ -9,6 +9,8 @@ const Board = ({pokeList}) => {
                     key={poke.id}
                     name={poke.name}
                     sprite={poke.sprite}
+                    id= {poke.id}
+                    handleClick={handleClick}
                 />
             )
         })}
