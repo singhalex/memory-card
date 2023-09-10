@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Board from './Board';
+import Header from './Header';
 
 function App() {
   // Create states
@@ -69,10 +70,7 @@ function App() {
 
   return (
     <>
-      <div className='scoreboard'>
-        <h1>Current Score: {currentScore}</h1>
-        <h1>High Score: {highScore}</h1>
-      </div>
+      <Header currentScore={currentScore} highScore={highScore}></Header>
       <Board pokeList={pokeList} handleClick={checkGuesses} className='board'/>
     </>
   )
