@@ -22,6 +22,19 @@ html {
     height: auto;
   }
 
+  .header {
+    width: 800px;
+    margin: auto;
+    margin-top: 1rem;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 200px 200px;
+  }
+
+  .header > div {
+    width: 200px;
+  }
+
   .board {
     margin: auto;
     max-width: 800px;
