@@ -1,8 +1,13 @@
 const Header = ({currentScore, highScore}) => {
     return (
-        <div className='scoreboard'>
-            <h1>Current Score: {currentScore}</h1>
-            <h1>High Score: {highScore}</h1>
+        <div className='header'>
+            <div>
+                <h1>PokeShuffle</h1>
+            </div>
+            <div className='scoreboard'>
+                <p>Current Score: {currentScore}</p>
+                <p>High Score: {highScore}</p>
+            </div>
         </div>
     );
 }
