@@ -8,7 +8,7 @@ function App() {
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [guesses, setGuesses] = useState([]);
-  const [numOfPoke, setNumOfPoke] = useState(9);
+  const [message, setMessage] = useState('');
   
   // Fetch pokemon info from API
   const fetchPokemon = async (number) => {
@@ -19,6 +19,7 @@ function App() {
 
   // Fetch pokemon in order
   const serializedFetchPokemon = async () => {
+    const numOfPoke = 9;
     const newPokeList = [];
 
     for (let i = 1; i < (numOfPoke + 1); i++) {
@@ -48,14 +49,14 @@ function App() {
   // Check Guesses
   const handleClick = (currentGuess) => {
     if (guesses.includes(currentGuess)) {
-      console.log('You Lose!');
+      setMessage('You Lost! Click a card to try again.');
       if (currentScore > highScore) {
         setHighScore(currentScore)
       }
       setGuesses([]);
       setCurrentScore(0);
     } else {
-      console.log('Good Guess');
+      setMessage('Good Guess!');
       setCurrentScore(currentScore + 1)
       setGuesses([...guesses, currentGuess])
     }
@@ -71,7 +72,7 @@ function App() {
   return (
     <>
       <Header currentScore={currentScore} highScore={highScore}></Header>
-      <Board pokeList={pokeList} handleClick={handleClick} className='board'/>
+      <Board pokeList={pokeList} handleClick={handleClick} message={message} className='board'/>
     </>
   )
 }
