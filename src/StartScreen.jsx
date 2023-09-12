@@ -4,9 +4,9 @@ const StartSceen = ({handleStart}) => {
     const [value, setValue] = useState(9);
 
     return (
-        <div className="start-screen">
+        <div id="start-screen">
             <form>
-                <label htmlFor="poke-number">How many Pokemon can you remember? (Max 150)</label>
+                <label htmlFor="poke-number">How many Pokemon can you remember? (Max 150): </label>
                 <input
                     type="number"
                     id="poke-number"

@@ -60,8 +60,6 @@ html {
     -webkit-filter: brightness(90%);
   }
 
-
-
   .poke-card > h4 {
     text-align: center;
   }
@@ -71,3 +69,19 @@ html {
     margin-left: auto;
     margin-right: auto;
   }
+
+  #start-screen {
+    max-width: 800px;
+    margin: auto;
+  }
+
+  #start-screen > * {
+    margin: 1rem;
+  }
+
+  input {
+    padding: .25rem;
+    margin-right: 1rem;
+  }
+
+  
