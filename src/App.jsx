@@ -73,11 +73,6 @@ function App() {
     setGameOver(false);
   }
   
-  // // Fetch pokemon on page load
-  // useEffect(() => {
-  //   serializedFetchPokemon();
-  // }, []);
-
   return (
     <>
       <Header currentScore={currentScore} highScore={highScore}></Header>
