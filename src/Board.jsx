@@ -1,20 +1,11 @@
-import Card from "./Card";
+import Grid from "./Grid";
+import StartSceen from "./StartScreen";
 
-const Board = ({pokeList, handleClick}) => {
+const Board = ({pokeList, handleClick, handleStart, gameOver}) => {
     return (
-      <div className="board">
-        {pokeList.map((poke) => {
-            return (
-                <Card
-                    key={poke.id}
-                    name={poke.name}
-                    sprite={poke.sprite}
-                    id= {poke.id}
-                    handleClick={handleClick}
-                />
-            )
-        })}
-      </div>
+      gameOver ?
+      <StartSceen handleStart={handleStart}/> :
+      <Grid pokeList={pokeList} handleClick={handleClick} />
     )
 
 }
