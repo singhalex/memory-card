@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-const Board = ({pokeList, handleClick, message}) => {
+const Board = ({pokeList, handleClick}) => {
     return (
       <div className="board">
         {pokeList.map((poke) => {
@@ -14,7 +14,6 @@ const Board = ({pokeList, handleClick, message}) => {
                 />
             )
         })}
-        <h2>{message}</h2>
       </div>
     )
 

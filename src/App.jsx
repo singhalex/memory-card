@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Board from './Board';
 import Header from './Header';
+import Message from './Message';
 
 function App() {
   // Create states
@@ -73,6 +74,7 @@ function App() {
     <>
       <Header currentScore={currentScore} highScore={highScore}></Header>
       <Board pokeList={pokeList} handleClick={handleClick} message={message} className='board'/>
+      <Message message={message} />
     </>
   )
 }
