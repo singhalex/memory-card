@@ -39,12 +39,11 @@ html {
     font-family: 'Pokemon Solid', sans-serif;                                                
   }
 
-  .board {
+  #grid {
     margin: auto;
     max-width: 800px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-items: center;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .poke-card {

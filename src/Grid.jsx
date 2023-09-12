@@ -2,7 +2,7 @@ import Card from "./Card";
 
 const Grid = ({pokeList, handleClick}) => {
     return (
-        <div className="board">
+        <div id="grid">
         {pokeList.map((poke) => {
             return (
                 <Card
