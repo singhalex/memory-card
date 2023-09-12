@@ -23,6 +23,7 @@ html {
   }
 
   .header {
+    font-family: 'Pokemon Solid', sans-serif;                                                
     width: 800px;
     margin: auto;
     margin-top: 1rem;
