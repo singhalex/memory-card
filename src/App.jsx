@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import Board from './Board';
-import Header from './Header';
-import Message from './Message';
+import { useEffect, useState } from "react";
+import Board from "./Board";
+import Header from "./Header";
+import Message from "./Message";
 
 function App() {
   // Create states
@@ -9,31 +9,31 @@ function App() {
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [guesses, setGuesses] = useState([]);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [gameOver, setGameOver] = useState(true);
-  
+
   // Fetch pokemon info from API
   const fetchPokemon = async (number) => {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${number}`);
     const data = await response.json();
     return data;
-  }
+  };
 
   // Fetch pokemon in order
   const serializedFetchPokemon = async (number = 9) => {
     const newPokeList = [];
 
-    for (let i = 1; i < (number + 1); i++) {
-      const pokemon = await fetchPokemon(i)
+    for (let i = 1; i < number + 1; i++) {
+      const pokemon = await fetchPokemon(i);
       newPokeList.push({
         id: pokemon.id,
         name: pokemon.name,
-        sprite: pokemon.sprites.front_default
-      })
+        sprite: pokemon.sprites.front_default,
+      });
     }
 
     setPokeList(shuffleArray(newPokeList));
-  }
+  };
 
   // Randomize order
   const shuffleArray = (array) => {
@@ -45,34 +45,34 @@ function App() {
     }
 
     return arrayCopy;
-  }
+  };
 
   // Check Guesses
   const handleClick = (currentGuess) => {
     if (guesses.includes(currentGuess)) {
-      setMessage('You Lost! Try again.');
+      setMessage("You Lost! Try again.");
       if (currentScore > highScore) {
-        setHighScore(currentScore)
+        setHighScore(currentScore);
       }
       setGuesses([]);
       setCurrentScore(0);
       setGameOver(true);
     } else {
-      setMessage('Good Guess!');
-      setCurrentScore(currentScore + 1)
-      setGuesses([...guesses, currentGuess])
+      setMessage("Good Guess!");
+      setCurrentScore(currentScore + 1);
+      setGuesses([...guesses, currentGuess]);
     }
 
-    setPokeList(shuffleArray(pokeList))
-  }
+    setPokeList(shuffleArray(pokeList));
+  };
 
   const handleStart = (e, number) => {
     e.preventDefault();
-    setMessage('');
+    setMessage("");
     serializedFetchPokemon(number);
     setGameOver(false);
-  }
-  
+  };
+
   return (
     <>
       <Header currentScore={currentScore} highScore={highScore}></Header>
@@ -85,7 +85,7 @@ function App() {
       />
       <Message message={message} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
