@@ -58,6 +58,12 @@ img {
   flex-wrap: wrap;
 }
 
+#loader {
+  max-width: 200px;
+  margin: auto;
+  margin-top: 4rem;
+}
+
 .poke-card {
   width: 150px;
   height: 150px;

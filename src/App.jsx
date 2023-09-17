@@ -11,6 +11,7 @@ function App() {
   const [guesses, setGuesses] = useState([]);
   const [message, setMessage] = useState("");
   const [gameOver, setGameOver] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   // Fetch pokemon info from API
   const fetchPokemon = async (number) => {
@@ -23,13 +24,17 @@ function App() {
   const serializedFetchPokemon = async (number = 9) => {
     const newPokeList = [];
 
-    for (let i = 1; i < number + 1; i++) {
-      const pokemon = await fetchPokemon(i);
-      newPokeList.push({
-        id: pokemon.id,
-        name: pokemon.name,
-        sprite: pokemon.sprites.front_default,
-      });
+    try {
+      for (let i = 1; i < number + 1; i++) {
+        const pokemon = await fetchPokemon(i);
+        newPokeList.push({
+          id: pokemon.id,
+          name: pokemon.name,
+          sprite: pokemon.sprites.front_default,
+        });
+      }
+    } finally {
+      setLoading(false);
     }
 
     setPokeList(shuffleArray(newPokeList));
@@ -82,6 +87,7 @@ function App() {
         handleStart={handleStart}
         message={message}
         gameOver={gameOver}
+        loading={loading}
       />
       <Message message={message} />
     </>
